@@ -26,7 +26,7 @@ body {
 .content::before {
     content: "";
     position: absolute;
-    background-color: #dabb32;
+    background-color: #8A80F1;
     width: 40%;
     height: 100%;
     border-top-left-radius: 15px;
@@ -44,7 +44,7 @@ body {
     color: #fff;
 }
 .title-second {
-    color: #dabb32;
+    color: #8A80F1;
 }
 .description {
     font-size: 14px;
@@ -77,17 +77,17 @@ body {
 }
 .btn-primary:hover {
     background-color: #fff;
-    color: #dabb32;
+    color: #8A80F1;
 }
 .btn-second {
-    background-color: #dabb32;
-    border: 1px solid #dabb32;
+    background-color: #8A80F1;
+    border: 1px solid #8A80F1;
     transition: background-color .5s;
 }
 .btn-second:hover {
     background-color: #fff;
-    border: 1px solid #dabb32;
-    color: #dabb32;
+    border: 1px solid #8A80F1;
+    color: #8A80F1;
 }
 .first-content {
     display: flex;
@@ -116,9 +116,9 @@ body {
     transition: background-color .5s;
 }
 .link-social-media:hover .item-social-media{
-    background-color: #dabb32;
+    background-color: #8A80F1;
     color: #fff;
-    border-color: #dabb32;
+    border-color: #8A80F1;
 }
 .list-social-media {
     display: flex;
@@ -512,8 +512,3 @@ input:-webkit-autofill
         width: 100%;
     }
 }
-
-
-
-
-
