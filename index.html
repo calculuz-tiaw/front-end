@@ -27,8 +27,22 @@
         };
       };
     </script>
+    
+    <script>
+    onload = () => {
+      login.onlogin = (event) => {
+        console.log ({senha: senha.value, email: email.value});
+        event.preventDefault();
+      };
+      register.onlogin = (event) => {
+        console.log ({ senha: senha2.value, email: email2.value});
+        localStorage.setItem('username', email2.value);
+        localStorage.setItem('password', senha2.value);
+        event.preventDefault();
+      };
+    };
+</script>  
           
-  
   </head>
   <body>
     <div class="container">
