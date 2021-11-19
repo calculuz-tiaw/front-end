@@ -15,13 +15,9 @@ btnSignup.addEventListener("click", function () {
 var btnRegister = document.querySelector("#registerBtn");
 var btnLogin = document.querySelector("#loginBtn");
 
-btnRegister.addEventListener("click", function () {
-  signUp();
-});
+btnRegister.addEventListener("click", signUp);
 
-btnLogin.addEventListener("click", function () {
-  signIn();
-});
+btnLogin.addEventListener("click", signIn);
 
 function signIn() {
   let emailEl = document.querySelector("#email");
@@ -32,8 +28,9 @@ function signIn() {
 
   // check if stored data from register-form is equal to data from login form
   if (emailEl.value == storedEmail && passwordEl.value == storedPassword) {
+    window.location.href =
+      "file:///home/guilherme/Documentos/PUC/TIAW/calculuz/fav/index.html";
     alert("You are logged in.");
-    window.location.href = "http://www.devmedia.com.br";
   } else {
     alert("ERROR.");
   }
