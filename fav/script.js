@@ -1,6 +1,5 @@
 var favBtn = document.getElementById("fav-btn");
 var calcBtn = document.getElementById("calc-btn");
-var montlhyCostsEl = document.getElementById("value-field");
 var cleanBtn = document.getElementById("clean-btn");
 var DECIMAL_THOUSAND = 1000;
 var deviceNameArr = [];
@@ -36,10 +35,17 @@ function getInputValues() {
 }
 
 function calcAndFillTotalValue(deviceName, devicePot, deviceHours, deviceDays) {
-  let kwh =
+  let kwh;
+  kwh =
     (devicePot.value * deviceHours.value * deviceDays.value) / DECIMAL_THOUSAND;
-  alert(deviceName.value + " Custa: " + kwh.toPrecision(4));
-  montlhyCostsEl.textContent = "R$" + kwh.toPrecision(4);
+
+  fillTotalCosts(kwh);
+}
+
+function fillTotalCosts(kwh) {
+  var monthlyCostsEl = document.getElementById("value-field");
+  let kwhSum = monthlyCostsEl.innerText;
+  monthlyCostsEl.textContent = Number(kwhSum) + kwh;
 }
 
 function emptyInputs() {
@@ -47,7 +53,8 @@ function emptyInputs() {
   let devicePot = document.getElementById("devicePot");
   let deviceHours = document.getElementById("deviceHours");
   let deviceDays = document.getElementById("deviceDays");
-
+  let monthlyCostsEl = document.getElementById("value-field");
+  monthlyCostsEl.innerText = "00.00";
   deviceName.value = "";
   devicePot.value = "";
   deviceHours.value = "";
