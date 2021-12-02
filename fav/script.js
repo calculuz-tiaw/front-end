@@ -26,6 +26,16 @@ function getInputValues() {
   let deviceHours = document.getElementById("deviceHours");
   let deviceDays = document.getElementById("deviceDays");
 
+  if (
+    deviceName.value == "" ||
+    devicePot.value == "" ||
+    deviceDays.value == "" ||
+    deviceHours.value == ""
+  ) {
+    alert("Os inputs não podem ser vazios, preencha todos!");
+    return;
+  }
+
   deviceNameArr.push(deviceName);
   devicePotArr.push(devicePot);
   deviceHoursArr.push(deviceHours);
@@ -45,7 +55,7 @@ function calcAndFillTotalValue(deviceName, devicePot, deviceHours, deviceDays) {
 function fillTotalCosts(kwh) {
   var monthlyCostsEl = document.getElementById("value-field");
   let kwhSum = monthlyCostsEl.innerText;
-  monthlyCostsEl.textContent = Number(kwhSum) + kwh;
+  monthlyCostsEl.textContent = "R$: " + Number(kwhSum) + kwh;
 }
 
 function emptyInputs() {
@@ -54,7 +64,7 @@ function emptyInputs() {
   let deviceHours = document.getElementById("deviceHours");
   let deviceDays = document.getElementById("deviceDays");
   let monthlyCostsEl = document.getElementById("value-field");
-  monthlyCostsEl.innerText = "00.00";
+  monthlyCostsEl.innerText = "R$: 00.00";
   deviceName.value = "";
   devicePot.value = "";
   deviceHours.value = "";
