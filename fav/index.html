@@ -44,6 +44,11 @@
         <input id="deviceDays" type="text" class="form-control" placeholder="Dias de uso no mês" >
       </div>
     </div>
+    <div class="row g-3">
+      <div class="col">
+        <input id="deviceQtd" min="1" max="100" type="number" class="form-control" placeholder="Quantidade de equipamentos" >
+      </div>
+    </div>
   
     <div class="flex-container2">
       <button id="calc-btn" type="button" class="btn-p">Calcular</button>
@@ -55,7 +60,7 @@
     <div class="card" style="width: 31rem;">
       <div class="card-body">
         <h5 class="card-title">Gasto mensal com o aparelho:</h5>
-        <h6 id="value-field" class="card-subtitle">R$: 00.00</h6>
+        <h6 >R$: </h6> <h6 id="value-field" class="card-subtitle"> 00.00</h6>
       </div>
     </div>
   </div>

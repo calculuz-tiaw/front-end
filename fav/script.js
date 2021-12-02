@@ -7,12 +7,23 @@ var devicePotArr = [];
 var deviceHoursArr = [];
 var deviceDaysArr = [];
 
-calcBtn.addEventListener("click", calcMonthlyCosts);
+var keyupEvent = document
+  .getElementById("deviceQtd")
+  .addEventListener("keyup", function (event) {
+    if (event.code == "Enter" || event.code == "NumpadEnter") {
+      // Cancel the default action, if needed
+      event.preventDefault();
+      calcBtn.click();
+
+      getInputValues();
+    }
+  });
+
 cleanBtn.addEventListener("click", emptyInputs);
+calcBtn.addEventListener("click", calcMonthlyCosts);
 
 function calcMonthlyCosts() {
   getInputValues();
-
   //kWh = watts x horas/dia x dias
   //      ------------------------
   //              1000
@@ -25,7 +36,7 @@ function getInputValues() {
   let devicePot = document.getElementById("devicePot");
   let deviceHours = document.getElementById("deviceHours");
   let deviceDays = document.getElementById("deviceDays");
-
+  let deviceQtd = document.getElementById("deviceQtd");
   if (
     deviceName.value == "" ||
     devicePot.value == "" ||
@@ -41,13 +52,27 @@ function getInputValues() {
   deviceHoursArr.push(deviceHours);
   deviceDaysArr.push(deviceDays);
 
-  calcAndFillTotalValue(deviceName, devicePot, deviceHours, deviceDays);
+  calcAndFillTotalValue(
+    deviceName,
+    devicePot,
+    deviceHours,
+    deviceDays,
+    deviceQtd
+  );
 }
 
-function calcAndFillTotalValue(deviceName, devicePot, deviceHours, deviceDays) {
+function calcAndFillTotalValue(
+  deviceName,
+  devicePot,
+  deviceHours,
+  deviceDays,
+  deviceQtd
+) {
   let kwh;
   kwh =
-    (devicePot.value * deviceHours.value * deviceDays.value) / DECIMAL_THOUSAND;
+    ((devicePot.value * deviceHours.value * deviceDays.value) /
+      DECIMAL_THOUSAND) *
+    deviceQtd.value;
 
   fillTotalCosts(kwh);
 }
@@ -55,7 +80,8 @@ function calcAndFillTotalValue(deviceName, devicePot, deviceHours, deviceDays) {
 function fillTotalCosts(kwh) {
   var monthlyCostsEl = document.getElementById("value-field");
   let kwhSum = monthlyCostsEl.innerText;
-  monthlyCostsEl.textContent = "R$: " + Number(kwhSum) + kwh;
+  let total = Number(kwhSum) + kwh;
+  monthlyCostsEl.textContent = total.toFixed(2);
 }
 
 function emptyInputs() {
@@ -64,9 +90,12 @@ function emptyInputs() {
   let deviceHours = document.getElementById("deviceHours");
   let deviceDays = document.getElementById("deviceDays");
   let monthlyCostsEl = document.getElementById("value-field");
+  let deviceQtd = document.getElementById("deviceQtd");
+
   monthlyCostsEl.innerText = "R$: 00.00";
   deviceName.value = "";
   devicePot.value = "";
   deviceHours.value = "";
   deviceDays.value = "";
+  deviceQtd.value = 1;
 }
