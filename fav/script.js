@@ -14,6 +14,8 @@ var keyupEvent = document
       // Cancel the default action, if needed
       event.preventDefault();
       calcBtn.click();
+      favBtn.click();
+      
 
       getInputValues();
     }
@@ -21,6 +23,8 @@ var keyupEvent = document
 
 cleanBtn.addEventListener("click", emptyInputs);
 calcBtn.addEventListener("click", calcMonthlyCosts);
+favBtn.addEventListener("click", addFavoritos);
+
 
 function calcMonthlyCosts() {
   getInputValues();
@@ -98,4 +102,24 @@ function emptyInputs() {
   deviceHours.value = "";
   deviceDays.value = "";
   deviceQtd.value = 1;
+}
+
+function addFavoritos(){
+  getInputValues();
+
+  let deviceName = document.getElementById("deviceName");
+  let devicePot = document.getElementById("devicePot");
+
+  var tb = document.getElementById ("tbFavoritos");
+  var qtdLinhas = tb.rows.length;
+  var linha = tb.insertRow(qtdLinhas);
+
+  var cellCodigo = linha.insertCell (0);
+  var cellName = linha.insertCell (1); //apagar essa linha depois de retirar a coluna de comodo
+  var cellName = linha.insertCell (2);
+  var cellPot = linha.insertCell (3);
+
+  cellCodigo.innerHTML = qtdLinhas-1;
+  cellName.innerHTML = deviceName.value;
+  cellPot.innerHTML = devicePot.value + "w";
 }
