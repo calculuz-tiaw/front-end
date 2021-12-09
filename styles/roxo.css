@@ -228,3 +228,12 @@
    
 }
 
+#ui-id-1{
+list-style-type: none !important;
+background-color: #FFCF1C;
+position: absolute;
+cursor: pointer;
+}
+
+.ui-helper-hidden-accessible { display:none; }
+

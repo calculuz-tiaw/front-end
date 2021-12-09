@@ -9,6 +9,10 @@
 	 crossorigin="anonymous">
 
 	<link rel="stylesheet" href="../styles/roxo.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+  <script src="auto_complete.js"></script>
+
 </head>
 
 <body>
@@ -24,9 +28,15 @@
       <label for="tab1" id="tabs1">Calculo</label>
       <div class="content">
        <section class="row cadastro">
-    <div class="row g-3">
+         <div class="row g-3">
+           <div class="col1">
+             <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar" id="tags">
+             <button id="teste" class="btn-p btn-outline my-2 my-sm-0" onclick="completar_dados()" style="background-color:#FFCF1C">Pesquisar</button>
+           </div>
+         </div>
+         <div class="row g-3">
       <div class="col1">
-        <input id="deviceName"  type="text" class="form-control" placeholder="Nome do aparelho">
+        <input id="deviceName"  type="text" class="form-control " placeholder="Nome do aparelho">
       </div>
     </div>
     <div class="row g-3">
@@ -64,6 +74,7 @@
       </div>
     </div>
   </div>
+      </div>
  </li>
     
      <li id="aba2" style="width: 50%">
@@ -82,6 +93,12 @@
     </tr>
   </thead>
   <tbody style="background-color: #FFCF1C;">
+  <tr>
+    <th scope="row">1</th>
+    <td>Cozinha</td>
+    <td>Aspirador de pó residencial</td>
+    <td>600 W</td>
+  </tr>
     <tr>
       <th scope="row">1</th>
       <td>Cozinha</td>
@@ -101,64 +118,58 @@
       <td>100w</td>
     </tr>
     <tr>
-      <th scope="row">3</th>
+      <th scope="row">4</th>
       <td>Cozinha</td>
       <td>Batedeira de bolo</td>
       <td>100w</td>
     </tr>
     <tr>
-      <th scope="row">4</th>
+      <th scope="row">5</th>
       <td>Cozinha</td>
       <td>Cafeteira elétrica pequena uso doméstico</td>
       <td>600w</td>
     </tr>
+  <tr>
+    <th scope="row">6</th>
+    <td>Cozinha</td>
+    <td>Cafeteira elétrica uso comercial</td>
+    <td>1200w</td>
+  </tr>
     <tr>
-      <th scope="row">5</th>
+      <th scope="row">7</th>
       <td>Cozinha</td>
       <td>Espremedor de frutas</td>
       <td>200w</td>
     </tr>
     <tr>
-      <th scope="row">6</th>
+      <th scope="row">8</th>
       <td>Cozinha</td>
       <td>Fogão comum com acendedor</td>
       <td>90w</td>
     </tr>
     <tr>
-      <th scope="row">7</th>
+      <th scope="row">9</th>
       <td>Cozinha</td>
       <td>Fogão elétrico 6 bocas potência por queimador M</td>
       <td>2.100w</td>
     </tr>
     <tr>
-      <th scope="row">8</th>
+      <th scope="row">10</th>
       <td>Cozinha</td>
       <td>Fogão elétrico 6 bocas potência por queimador G</td>
       <td>2.700w</td>
     </tr>
     <tr>
-      <th scope="row">9</th>
+      <th scope="row">11</th>
       <td>Cozinha</td>
       <td>Forno de microondas</td>
       <td>750w</td>
     </tr>
     <tr>
-      <th scope="row">10</th>
-      <td>Cozinha</td>
-      <td>Batedeira de bolo</td>
-      <td>100w</td>
-    </tr>
-    <tr>
-      <th scope="row">11</th>
+      <th scope="row">12</th>
       <td>Cozinha</td>
       <td>Forno elétrico de embutir</td>
       <td>4.500w</td>
-    </tr>
-    <tr>
-      <th scope="row">12</th>
-      <td>Cozinha</td>
-      <td>Batedeira de bolo</td>
-      <td>100w</td>
     </tr>
     <tr>
       <th scope="row">13</th>
@@ -196,105 +207,117 @@
       <td>Torneira elétrica</td>
       <td>2.000w</td>
     </tr>
+  <tr>
+    <th scope="row">19</th>
+    <td>Cozinha</td>
+    <td>Micro forno elétrico</td>
+    <td>1.000w</td>
+  </tr>
     <tr>
-      <th scope="row">19</th>
+      <th scope="row">20</th>
       <td>Domestico</td>
       <td>Aspirador de pó</td>
       <td>600w</td>
     </tr>
     <tr>
-      <th scope="row">20</th>
+      <th scope="row">21</th>
       <td>Domestico</td>
-      <td>Ferro elétrico</td>
+      <td>Ferro elétrico automatico</td>
       <td>1.000w</td>
     </tr>
+  <tr>
+    <th scope="row">22</th>
+    <td>Domestico</td>
+    <td>Ferro elétrico simples</td>
+    <td>500w</td>
+  </tr>
     <tr>
-      <th scope="row">21</th>
+      <th scope="row">23</th>
       <td>Domestico</td>
       <td>Impressora comum </td>
       <td>90w</td>
     </tr>
     <tr>
-      <th scope="row">22</th>
+      <th scope="row">24</th>
       <td>Domestico</td>
       <td>Televisor colorido</td>
       <td>200w</td>
     </tr>
     <tr>
-      <th scope="row">23</th>
+      <th scope="row">25</th>
       <td>Domestico</td>
       <td>Ventilador</td>
       <td>250w</td>
     </tr>
     <tr>
-      <th scope="row">24</th>
+      <th scope="row">26</th>
       <td>Domestico</td>
       <td>Vídeo game</td>
       <td>10w</td>
     </tr>
      <tr>
-      <th scope="row">25</th>
+      <th scope="row">27</th>
       <td>Banheiro</td>
       <td>Chuveiro elétrico 127V</td>
       <td>4.400w</td>
     </tr>
-    <th scope="row">26</th>
+    <th scope="row">28</th>
       <td>Banheiro</td>
       <td>Chuveiro elétrico 220V</td>
       <td>6.000w</td>
     </tr>
-    <th scope="row">27</th>
+    <th scope="row">29</th>
       <td>Banheiro</td>
       <td>Secador de cabelos G</td>
       <td>1.250w</td>
     </tr>
-    <th scope="row">28</th>
+    <th scope="row">30</th>
       <td>Banheiro</td>
       <td>Secador de cabelos</td>
       <td>700w</td>
     </tr>
-    <th scope="row">29</th>
+    <th scope="row">31</th>
       <td>Lavanderia</td>
       <td>Máquina de lavar roupas</td>
       <td>1.000w</td>
     </tr>
-    <th scope="row">30</th>
+    <th scope="row">32</th>
       <td>Lavanderia</td>
       <td>Secador de roupa</td>
       <td>1.100w</td>
     </tr>
     </tr>
-    <th scope="row">31</th>
+    <th scope="row">33</th>
       <td>Lampadas</td>
       <td>Lâmpada Fluorescente de 20W</td>
       <td>20w</td>
     </tr>
     </tr>
-    <th scope="row">32</th>
+    <th scope="row">34</th>
       <td>Lampadas</td>
       <td>Lâmpada Fluorescente de 40W</td>
       <td>40w</td>
     </tr>
     </tr>
-    <th scope="row">33</th>
+    <th scope="row">35</th>
       <td>Lampadas</td>
       <td>Lâmpada Incandescente de 15W</td>
       <td>15w</td>
     </tr>
     </tr>
-    <th scope="row">34</th>
+    <th scope="row">36</th>
       <td>Lampadas</td>
       <td>Lâmpada Incandescente de 60W</td>
       <td>60w</td>
     </tr>
     </tr>
-    <th scope="row">35</th>
+    <th scope="row">37</th>
       <td>Lampadas</td>
       <td>Lâmpada Incandescente de 100W</td>
       <td>100w</td>
     </tr>
     </tr>
-    <th scope="row">36</th>
+    <th scope="row">38</th>
       <td>Lampadas</td>
       <td>Lâmpada Incandescente de 250W</td>
       <td>250w</td>
@@ -308,11 +331,11 @@
 </ul>    
 </nav>
 
-<script src="script.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
+<script src="script.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 
 

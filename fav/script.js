@@ -123,3 +123,4 @@ function addFavoritos(){
   cellName.innerHTML = deviceName.value;
   cellPot.innerHTML = devicePot.value + "w";
 }
+
