@@ -15,7 +15,6 @@ var keyupEvent = document
       event.preventDefault();
       calcBtn.click();
       favBtn.click();
-      
 
       getInputValues();
     }
@@ -24,7 +23,6 @@ var keyupEvent = document
 cleanBtn.addEventListener("click", emptyInputs);
 calcBtn.addEventListener("click", calcMonthlyCosts);
 favBtn.addEventListener("click", addFavoritos);
-
 
 function calcMonthlyCosts() {
   getInputValues();
@@ -104,22 +102,23 @@ function emptyInputs() {
   deviceQtd.value = 1;
 }
 
-function addFavoritos(){
-  getInputValues();
-
+function addFavoritos() {
   let deviceName = document.getElementById("deviceName");
   let devicePot = document.getElementById("devicePot");
-
-  var tb = document.getElementById ("tbFavoritos");
+  if (deviceName.value == "" || devicePot.value == "") {
+    alert("Os inputs não podem ser vazios, preencha todos!");
+    return;
+  }
+  var tb = document.getElementById("tbFavoritos");
   var qtdLinhas = tb.rows.length;
   var linha = tb.insertRow(qtdLinhas);
 
-  var cellCodigo = linha.insertCell (0);
-  var cellName = linha.insertCell (1); //apagar essa linha depois de retirar a coluna de comodo
-  var cellName = linha.insertCell (2);
-  var cellPot = linha.insertCell (3);
+  var cellCodigo = linha.insertCell(0);
+  var cellName = linha.insertCell(1); //apagar essa linha depois de retirar a coluna de comodo
+  var cellName = linha.insertCell(2);
+  var cellPot = linha.insertCell(3);
 
-  cellCodigo.innerHTML = qtdLinhas-1;
+  cellCodigo.innerHTML = qtdLinhas - 1;
   cellName.innerHTML = deviceName.value;
   cellPot.innerHTML = devicePot.value + "w";
 }
