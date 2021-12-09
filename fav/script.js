@@ -122,7 +122,3 @@ function addFavoritos() {
   cellName.innerHTML = deviceName.value;
   cellPot.innerHTML = devicePot.value + "w";
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> f51320bf7555814fa230ba29a84e9f1a4385573a
