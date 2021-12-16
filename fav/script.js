@@ -7,18 +7,15 @@ var devicePotArr = [];
 var deviceHoursArr = [];
 var deviceDaysArr = [];
 var body = document.querySelector("body");
+let tableEl = document.getElementById("tbFavoritos").innerHTML;
 
 function getTableStorage() {
-  let tableEl = document.getElementById("tbFavoritos");
-
   storageTable = localStorage.getItem("table");
 
   tableEl.innerHTML = storageTable;
 }
 
 function setStorageTable() {
-  let tableEl = document.getElementById("tbFavoritos").innerHTML;
-
   localStorage.setItem("table", tableEl);
 }
 
