@@ -94,7 +94,7 @@ function emptyInputs() {
   let monthlyCostsEl = document.getElementById("value-field");
   let deviceQtd = document.getElementById("deviceQtd");
 
-  monthlyCostsEl.innerText = "R$: 00.00";
+  monthlyCostsEl.innerText = "00.00";
   deviceName.value = "";
   devicePot.value = "";
   deviceHours.value = "";
@@ -114,9 +114,8 @@ function addFavoritos() {
   var linha = tb.insertRow(qtdLinhas);
 
   var cellCodigo = linha.insertCell(0);
-  var cellName = linha.insertCell(1); //apagar essa linha depois de retirar a coluna de comodo
-  var cellName = linha.insertCell(2);
-  var cellPot = linha.insertCell(3);
+  var cellName = linha.insertCell(1);
+  var cellPot = linha.insertCell(2);
 
   cellCodigo.innerHTML = qtdLinhas - 1;
   cellName.innerHTML = deviceName.value;
