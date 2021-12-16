@@ -17,14 +17,18 @@
   position: relative;
   justify-content: left;
   background-color: #8A80F1;
-  color: #fff;
+  color: black;
+  font-weight: 600;
+  font-size: 20px;
 }
 #tabs2{
   width: 100%;
   position: relative;
   justify-content: right;
   background-color: #FFCF1C;
-  color: #fff;
+  color: black;
+  font-weight: 600;
+  font-size: 20px;
 }
 
 .nav_tabs{
@@ -185,7 +189,7 @@
     border-radius: 15px;
     font-family: Comfortaa;
     font-size: 20px;  
-    color: white; 
+    color: black;
 
 }
 
@@ -211,7 +215,7 @@
 }
  
 .card-title{
-    color:white;
+    color:black;
     display: flex;
     justify-content: left;
     font-family: Comfortaa;
