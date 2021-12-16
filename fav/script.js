@@ -6,16 +6,19 @@ var deviceNameArr = [];
 var devicePotArr = [];
 var deviceHoursArr = [];
 var deviceDaysArr = [];
-var body = document.querySelector("body");
-let tableEl = document.getElementById("tbFavoritos").innerHTML;
 
 function getTableStorage() {
-  storageTable = localStorage.getItem("table");
+  let tableEl = document.getElementById("tbFavoritos");
 
-  tableEl.innerHTML = storageTable;
+  if (localStorage.getItem("table") != null) {
+    storageTable = localStorage.getItem("table");
+    tableEl.innerHTML = storageTable;
+  } else return;
 }
 
 function setStorageTable() {
+  let tableEl = document.getElementById("tbFavoritos").innerHTML;
+
   localStorage.setItem("table", tableEl);
 }
 
@@ -31,7 +34,6 @@ var keyupEvent = document
       getInputValues();
     }
   });
-body.addEventListener("load", getTableStorage);
 cleanBtn.addEventListener("click", emptyInputs);
 calcBtn.addEventListener("click", calcMonthlyCosts);
 favBtn.addEventListener("click", addFavoritos);
