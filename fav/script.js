@@ -113,7 +113,7 @@ function emptyInputs() {
   devicePot.value = "";
   deviceHours.value = "";
   deviceDays.value = "";
-  deviceQtd.value = 1;
+  deviceQtd.value = "";
 }
 
 function addFavoritos() {
