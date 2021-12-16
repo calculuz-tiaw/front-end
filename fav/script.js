@@ -6,6 +6,21 @@ var deviceNameArr = [];
 var devicePotArr = [];
 var deviceHoursArr = [];
 var deviceDaysArr = [];
+var body = document.querySelector("body");
+
+function getTableStorage() {
+  let tableEl = document.getElementById("tbFavoritos");
+
+  storageTable = localStorage.getItem("table");
+
+  tableEl.innerHTML = storageTable;
+}
+
+function setStorageTable() {
+  let tableEl = document.getElementById("tbFavoritos").innerHTML;
+
+  localStorage.setItem("table", tableEl);
+}
 
 var keyupEvent = document
   .getElementById("deviceQtd")
@@ -19,7 +34,7 @@ var keyupEvent = document
       getInputValues();
     }
   });
-
+body.addEventListener("load", getTableStorage);
 cleanBtn.addEventListener("click", emptyInputs);
 calcBtn.addEventListener("click", calcMonthlyCosts);
 favBtn.addEventListener("click", addFavoritos);
@@ -120,4 +135,5 @@ function addFavoritos() {
   cellCodigo.innerHTML = qtdLinhas - 1;
   cellName.innerHTML = deviceName.value;
   cellPot.innerHTML = devicePot.value + "w";
+  setStorageTable();
 }
